@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 class ProductService {
     private final ProductPort productPort;
 
-    ProductService(ProductPort productPort) {
+    ProductService(final ProductPort productPort) {
         this.productPort = productPort;
     }
 
@@ -24,4 +24,15 @@ class ProductService {
         productPort.save(product);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
+
+    public GetProductResponse getProduct(final Long productId){
+        final Product product = productPort.getProduct(productId);
+
+        return new GetProductResponse(
+                product.getId(),
+                product.getName(),
+                product.getPrice(),
+                product.getDiscountPolicy());
+    }
+
 }
