@@ -1,19 +1,22 @@
 package com.example.productorderservice.product;
 
-import org.junit.jupiter.api.BeforeEach;
+import com.example.productorderservice.product.application.service.GetProductResponse;
+import com.example.productorderservice.product.application.service.ProductService;
+import com.example.productorderservice.product.application.service.UpdateProductRequest;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 
-import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
 class ProductServiceTest {
 
     @Autowired
     private ProductService productService;
+
+
 
     @Test
     void 상품수정() {
@@ -30,18 +33,4 @@ class ProductServiceTest {
 
     }
 
-
-//    private static class StubProductPort implements ProductPort {
-//        public Product getProduct_will_return;
-//
-//        @Override
-//        public void save(final Product product) {
-//
-//        }
-//
-//        @Override
-//        public Product getProduct(final Long productId) {
-//            return getProduct_will_return;
-//        }
-//    }
 }

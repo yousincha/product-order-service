@@ -1,19 +1,18 @@
 package com.example.productorderservice.product;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+
 import com.example.productorderservice.ApiTest;
-import io.restassured.RestAssured;
-import io.restassured.response.ExtractableResponse;
-import io.restassured.response.Response;
+import com.example.productorderservice.product.adapter.ProductRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-class ProductApITest extends ApiTest {
+class ProductApiTest extends ApiTest {
 
     @Autowired
     ProductRepository productRepository;
+
     @Test
     void 상품등록() {
         final var request = ProductSteps.상품등록요청_생성();
